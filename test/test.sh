@@ -5,11 +5,11 @@
 # go to dir
 cd "$(dirname "$0")"
 
-# source module library
-. ../lib/module.sh
+# source library
+. ../lib/loader.sh
 
 # env
-MODULE_ROOT="$(pwd)/fixtures"
+PKGPATH="$(pwd)/fixtures"
 
 # vars
 t=1
@@ -37,8 +37,8 @@ summarize() {
 }
 
 # 1
-module load tester 0.0.1
-tap "module load tester 0.0.1"
+load tester 0.0.1
+tap "load tester 0.0.1"
 
 # 2
 test "$PATH" != "$original_path"
@@ -54,8 +54,8 @@ man -d tester 2>&1 | grep -q tester/build/0.0.1
 tap "man page lookup for tester 0.0.1"
 
 # 5
-module load tester 0.0.2
-tap "module load tester 0.0.2"
+load tester 0.0.2
+tap "load tester 0.0.2"
 
 # 6
 test "$PATH" != "$original_path"
