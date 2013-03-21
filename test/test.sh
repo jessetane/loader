@@ -50,7 +50,7 @@ test "$(tester)" = "0.0.1"
 tap "execute tester 0.0.1"
 
 # 4
-man -d tester &> /dev/null
+man -d tester 2>&1 | grep -q tester/build/0.0.1
 tap "man page lookup for tester 0.0.1"
 
 # 5
@@ -67,7 +67,7 @@ test "$(tester)" = "0.0.2"
 tap "execute tester 0.0.2"
 
 # 8
-man -d tester &> /dev/null
+man -d tester 2>&1 | grep -q tester/build/0.0.2
 tap "man page lookup for tester 0.0.2"
 
 # done
