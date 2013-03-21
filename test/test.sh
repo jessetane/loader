@@ -6,7 +6,7 @@
 cd "$(dirname "$0")"
 
 # source library
-. ../lib/loader.sh
+. ../bin/loader.sh
 
 # env
 PKGPATH="$(pwd)/fixtures"
