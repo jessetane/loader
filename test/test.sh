@@ -23,8 +23,7 @@ tap() {
     echo "✔  passed test #$t: $1"
   else
     echo "✘  failed test #$t: $1" >&2
-    summarize
-    exit 1
+    summarize && exit 1
   fi
   ((t++))
 }
@@ -32,7 +31,7 @@ tap() {
 summarize() {
   [ $((--t)) = $expected ] && status="success" || status="failure"
   echo ""
-  echo "-- $status --"
+  echo "----- $status -----"
   echo "$t of $expected tests passed"
 }
 
@@ -70,5 +69,5 @@ tap "execute tester 0.0.2"
 man -d tester 2>&1 | grep -q tester/build/0.0.2
 tap "man page lookup for tester 0.0.2"
 
-# done
+# all done
 summarize
